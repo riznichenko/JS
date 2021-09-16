@@ -1,0 +1,238 @@
+html {
+    height:100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color:chocolate;
+}
+
+.header {
+    background: #d3b714;
+    position: relative;
+}
+
+.wrapper {
+    max-width: 1192px;
+    display: flex;
+    margin: 0 auto;
+    padding: 25px;
+}
+.container {
+    flex-grow: 1;
+}
+.navbar {
+    display: flex;
+    list-style: none;
+    padding: 17px;
+    position: absolute;
+    top:100%;
+    right: 0;
+    left: 0;
+    margin: 0;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    background:#d3b714;
+}
+.nav-item {
+    padding: 0 0 0 13px;
+}
+.nav-first{
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    align-self: center;
+    flex: 1 0 auto;
+}
+.main-text {
+    padding: 20px 30px;
+    flex-grow: 1;
+    max-width: 75%;
+}
+.aside1 {
+    order: -1;
+    width: 210px;
+    background:#c798b9;
+    padding: 20px;
+}
+
+.aside2 {
+    width: 210px;
+    background: #9cb1c7;
+    padding: 20px;
+}
+
+.footer {
+    padding: 10px;
+    background: #86ec86;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+
+.holder {
+    top: 0;
+    left: 0;
+    display: flex;
+    margin: 20px;
+    width: 300px;
+    height: 100px;
+    border: 2px solid #000;
+    border-radius: 22px 22px 0 0;
+    flex-wrap: wrap;
+    text-align: center;
+    font-weight: bold;
+}
+.item {
+    align-content: center;
+    display: grid;
+}
+
+.item:nth-child(1) {
+    background: #fd644d;
+    order: 1;
+    border-radius: 20px 0 0 0;
+    flex: 2 0 150px;
+}
+.item:nth-child(2) {
+    background: #4983b2;
+    order: 4;
+    flex-grow: 1;
+}
+.item:nth-child(3) {
+    background: #663797;
+    order: 3;
+    flex-grow: 1;
+}
+.item:nth-child(4) {
+    background: #0e7f12;
+    order: 5;
+    flex-grow: 1;
+}
+.item:nth-child(5) {
+    background: #fda429;
+    order: 2;
+    border-radius: 0 20px 0 0;
+    flex: 2 0 150px;
+}
+
+
+
+.main-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.main-block {width: calc(33.33% - 34px);margin: 40px 0 0 20px;text-align: center;border: 2px solid #000;border-radius: 30px;}
+.card {text-align: center;padding: 0 20px;}
+.card-img {border: 20px solid #c7b7b7;border-radius: 50%;}
+.card-info {display: block;}
+.button {display: inline-block;background: #685174;width: 44px;border-radius: 20px;color: white;margin: 20px;/* justify-content: center; */}
+
+
+/* ------burger------- */
+#burger {
+    position: absolute;
+    left:-999999px;
+    visibility: hidden;
+}
+#burger:checked + label:before {
+    transform: rotate(45deg);
+    top: 11px;
+    transition: all .3s ease-in;
+}
+#burger:checked + label:after {
+    transform: rotate(-45deg);
+    bottom: 11px;
+    transition: all .3s ease-in;
+}
+#burger:checked + label span {
+    opacity: 0;
+    visibility: hidden;
+}
+#burger:checked ~ .navbar {
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s ease-in;
+}
+
+.burger-menu {
+    width: 30px;
+    height:25px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+.burger-menu:before,
+.burger-menu::after,
+.burger-menu span {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    height: 3px;
+    background:#000;
+}
+.burger-menu:before {
+    content: '';
+    top: 5px; 
+}
+.burger-menu:after {
+    content: '';
+    bottom: 5px; 
+}
+.burger-menu span {
+    top: 11px;
+}
+
+
+
+@media (min-width: 319px) { 
+    .main-block {width: calc(100% - 34px);margin: 40px 0 0 20px;text-align: center;border: 2px solid #000;border-radius: 30px;}
+    .nav-item {
+        padding: 20px 0px;
+    }
+ }
+
+/* Стили для средних экранов (планшеты, дисплей 768 пикселей и более) */
+    @media (min-width: 575px) { 
+        .main-block {width: calc(50% - 34px);margin: 40px 0 0 20px;text-align: center;border: 2px solid #000;border-radius: 30px;}
+ 
+     }
+
+/* Стили для больших экранов (ПК, дисплей 992 пикселей и более) */
+    @media (min-width: 991px) { 
+        .main-block {width: calc(33.33% - 34px);margin: 40px 0 0 20px;text-align: center;border: 2px solid #000;border-radius: 30px;}
+}
+
+/* Стили для очень больших экранов (ПК с большим монитором, дисплей 1200 пикселей и более) */
+    @media (min-width: 1024px) {
+    .burger-menu {
+        display: none;
+    }    
+    .navbar {
+        position: static;
+        flex-direction: row;
+        background:#d3b714;
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-item {
+        padding: 0 0 0 13px;
+    }
+
